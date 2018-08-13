@@ -8,7 +8,9 @@ This project explores how to find lane lines on a road using Computer Vision tec
 
 The processing pipeline uses the following methods:
 
-1. Converting the image to grayscale.
+1. Extract colour with HLS colour spaces combined with x sobel gradient.
+
+2. Converting the image to grayscale.
 
 2. Canny Edge Detection
 
@@ -21,17 +23,20 @@ The processing pipeline uses the following methods:
 #### Analyse the Input
 ![png](test_images_output/input.png)
 
+#### Extract colours of Interest
+![png](test_images_output/colour-select.png)
+
 #### Convert Input to Grayscale
-![png](test_images_output/gray.png)
+![png](test_images_output/gray-select.png)
 
 #### Apply a Gaussian Blur 
-![png](test_images_output/blurred.png)
+![png](test_images_output/gray-select.png)
 
 #### Do Edge detection using the Canny transform
-![png](test_images_output/canny.png)
+![png](test_images_output/canny-select.png)
 
 #### Apply a Hough transform to detect the lines from the image. Analyse the slope of the lines and draw them out with their weighted average 
-![png](test_images_output/hough.png)
+![png](test_images_output/hough-image.png)
 
 #### View the output 
 ![png](test_images_output/output.png)
@@ -45,11 +50,15 @@ Shortcomings of the approach used in this project
 1. Flawed lane detection in bends
 The approached used in this project will have reduced accuracy as the lanes get curved. The region of interest will capture less of the lanes on steep bends
 
+2. The approach currently struggles under different road surfaces. 
+
 
 Suggested Improvement
 ---------------------
 
 1. Analyse the curvature on the road and draw a polyline instead of one straight line
+
+2. Explore other colour spaces to help identify lanes in various road and lighten conditions.
 
 
 
